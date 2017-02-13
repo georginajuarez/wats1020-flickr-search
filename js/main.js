@@ -39,7 +39,14 @@ $.getJSON( flickrAPI, {
       $('#images').empty();
       $('h1.search-title').first()[0].innerHTML = "Ask and ye shall receive: " + tags;
       $.each( data.items, function( i, item ) {
-        var newListItem = $("<li>");
+        var newListItem = $("<li class='col-md-6'>");
+        
+        var newTitle = $('<p class="image-title">').html(item.title).appendTo(newListItem);
+        var newDate = $('<p class="image-date">').text(item.date_taken).appendTo(newListItem);
+        var newDescription = $('<p class="image-description">').html(item.description).appendTo(newListItem);
+        var newLink = $('<a>').attr('href', item.link).text('View on Flickr.').appendTo(newListItem);
+      //images won't appear w/o newLink
+        
      newListItem.appendTo( "#images" );
         if ( i === 15 ) {
           return false;

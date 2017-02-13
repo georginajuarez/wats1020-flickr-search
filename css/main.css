@@ -43,8 +43,10 @@ hr {
     clear:both;
 }
 
-
-
+img {
+  width: 90%;
+  height: auto;
+}
 
 
 
